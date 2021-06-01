@@ -1,0 +1,121 @@
+// File: example8.sally
+//
+// CMSC341 Fall 2018 Project 2
+//
+// Sally FORTH source code
+//
+// This shows off some of the functions of the Sally interpreter
+// NOTE: PLEASE READ THE README FILE INCL. WITH THIS PROGRAM!
+// 
+
+."Addition, subtraction, modulus"
+. CR
+
+1 2 + . CR
+3 5 + 7 - . CR
+24 7 % . CR
+
+
+."Stack manipulation"
+. CR
+
+64 DUP . SP . CR  
+9 12 DROP . CR          
+20 8 SWAP . SP  . CR    
+10 30 20 ROT . SP . SP . CR
+
+
+."Variables"
+. CR
+
+2 var SET
+var @ . CR
+
+var @ 2 * var !
+var @ . CR
+
+2 iable SET
+var @ 2 + iable !
+iable @ . CR
+
+
+."Logic and truth"
+. CR
+
+5 6 < . CR
+5 6 > . CR
+
+9 9 == . CR
+9 9 != . CR
+
+6 foo SET
+foo @ 5 == . CR
+foo @ 1 - foo !
+foo @ 5 == . CR
+
+
+."Truth Tables with &&,||,!"
+. CR
+
+11 x SET
+x @ 13 >=  x @ 11 <=	 AND . CR
+x @ 11 >=  x @  9 <=      OR . CR
+x @ 8 >= 		 NOT . CR
+
+
+."IF THEN statements"
+. CR
+
+7 5 <
+IFTHEN
+	."You've got it all wrong!" . CR
+ELSE
+	."Correct!" . CR
+ENDIF #
+
+5 7 < 
+IFTHEN
+   1 1 + 2 == 
+   IFTHEN
+      3 2 % 0 ==
+      IFTHEN
+        ."you're loser" . CR
+      ELSE
+        ."Also Correct!" . CR
+      ENDIF
+   ELSE
+     ."why am i here..." . CR
+   ENDIF
+ELSE 
+   1 1 + 3 ==
+   IFTHEN
+      ."Not Good Enough!" . CR
+   ELSE
+      ."This is a disaster!" . CR
+   ENDIF
+ENDIF
+
+
+
+."DO/WHILE statements"
+. CR
+
+0 j SET
+
+DO
+
+  j @ 1 + j !
+  j @ . CR
+
+j @ 10 >= UNTIL
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+// File: example7.sally
+//
+// CMSC 341 Fall 2018 Project 2
+//
+// Sally FORTH source code
+//
+// Testing IFTHEN ELSE ENDIF
+//
+
+2 4 + . CR
+
+7 5 < 
+IFTHEN
+   ."Talk like Yoda, we do" . CR
+ELSE
+     ."Correct!" . CR
+ENDIF #
+
+5 7 + . CR
+7 2 + . CR
+
+
